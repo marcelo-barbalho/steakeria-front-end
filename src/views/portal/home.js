@@ -1,10 +1,16 @@
 import React from "react";
+import styled from "styled-components";
 
 const Home = () => {
   return (
     <>
-      <h1>rota home funcionando</h1>
+      <CustomHome>rota home funcionando</CustomHome>
     </>
   );
 };
+
 export default Home;
+
+const CustomHome = styled.div`
+  background-color: red;
+`;
