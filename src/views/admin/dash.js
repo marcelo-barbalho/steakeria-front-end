@@ -1,13 +1,13 @@
 import React from "react";
 import { FaAddressBook } from "react-icons/fa";
-
+import styled from "styled-components";
 import { Card, Button } from "react-bootstrap";
 const Dash = () => {
   return (
     <>
       <h1>
         rota dash funcionando
-        <FaAddressBook />
+        <Iconbook />
       </h1>
       <Card style={{ width: "18rem" }}>
         <Card.Img variant="top" src="holder.js/100px180" />
@@ -21,3 +21,7 @@ const Dash = () => {
   );
 };
 export { Dash };
+
+const Iconbook = styled(FaAddressBook)`
+  color: red;
+`;

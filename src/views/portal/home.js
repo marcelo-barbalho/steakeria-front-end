@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import Layout from "../../components/layout";
 
 const Home = () => {
   return (
     <>
-      <CustomHome>rota home funcionando</CustomHome>
+      <Layout>
+        <CustomHome>rota home funcionando</CustomHome>
+      </Layout>
     </>
   );
 };
@@ -12,5 +15,5 @@ const Home = () => {
 export default Home;
 
 const CustomHome = styled.div`
-  background-color: red;
+  background-color: #ddd;
 `;
