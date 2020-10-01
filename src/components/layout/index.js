@@ -20,7 +20,6 @@ const Header_style = styled.div`
   width: 100%;
 `;
 const Footer_style = styled.div`
-  background-color: green;
   height: 200px;
   width: 100%;
 `;

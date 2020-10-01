@@ -11,22 +11,22 @@ export default () => {
       icon: "",
     },
     {
-      title: "Sobre",
+      title: "About",
       link: "",
       icon: "",
     },
     {
-      title: "Produtos",
+      title: "Products",
       link: "",
       icon: "",
     },
     {
-      title: "Serviços",
+      title: "Services",
       link: "",
       icon: "",
     },
     {
-      title: "Contato",
+      title: "Contacts",
       link: "",
       icon: "",
     },
@@ -34,12 +34,13 @@ export default () => {
 
   return (
     <Header>
-      {" "}
       <Container>
         <Navbar variant="dark" expand="lg">
           <Navbar.Brand href="#home">
-            <GiSteak />
-            Steakeria
+            <Logo>
+              <GiSteak />
+              <span>Steakeria</span>
+            </Logo>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse
@@ -62,4 +63,18 @@ export default () => {
 
 const Header = styled.div`
   background-color: #111;
+  .nav-link:hover {
+    color: brown !important;
+  }
+`;
+
+const Logo = styled.div`
+  color: brown;
+  font-family: "Cinzel", serif;
+  svg {
+    font-size: 30px;
+  }
+  span {
+    color: #eee;
+  }
 `;
