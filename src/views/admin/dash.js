@@ -22,5 +22,5 @@ export default () => {
 };
 
 const Iconbook = styled(FaAddressBook)`
-  color: red;
+  color: #111;
 `;
