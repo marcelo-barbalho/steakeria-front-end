@@ -1,14 +1,15 @@
 import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
-import { Dash as AdminDash, Home } from "./views";
+import Portal from "./views/portal";
+import Admin from "./views/admin";
 import history from "./config/history";
 
 const Routers = () => {
   return (
     <Router history={history}>
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/admin" component={AdminDash} />
+        <Route path="/admin" component={Admin} />
+        <Route path="/" component={Portal} />
       </Switch>
     </Router>
   );

@@ -1,17 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
-const BannerHome = () => {
+const ProductsHome = () => {
   return (
     <>
-      <Banner></Banner>
+      <Products></Products>
     </>
   );
 };
 
-export default BannerHome;
-const Banner = styled.div`
+export default ProductsHome;
+
+const Products = styled.div`
   min-height: 400px;
   width: 100%;
-  background: #3498db;
+  background: #34495e;
 `;
