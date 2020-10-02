@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { GiSteak } from "react-icons/gi";
 
@@ -12,22 +13,22 @@ export default () => {
     },
     {
       title: "About",
-      link: "",
+      link: "about",
       icon: "",
     },
     {
       title: "Products",
-      link: "",
+      link: "product",
       icon: "",
     },
     {
       title: "Services",
-      link: "",
+      link: "service",
       icon: "",
     },
     {
       title: "Contacts",
-      link: "",
+      link: "contact",
       icon: "",
     },
   ];
@@ -49,9 +50,11 @@ export default () => {
           >
             <Nav>
               {menu.map((item, i) => (
-                <Nav.Link key={i} href="#home">
-                  {item.title}
-                </Nav.Link>
+                <Link to={item.link}>
+                  <Nav.Link key={i} href="#home">
+                    {item.title}
+                  </Nav.Link>
+                </Link>
               ))}
             </Nav>
           </Navbar.Collapse>
