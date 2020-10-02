@@ -25,7 +25,6 @@ const Footer_style = styled.div`
 `;
 
 const Content = styled.div`
-  background-color: pink;
   min-height: 500px;
 `;
 

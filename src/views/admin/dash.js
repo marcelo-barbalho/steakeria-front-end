@@ -2,7 +2,7 @@ import React from "react";
 import { FaAddressBook } from "react-icons/fa";
 import styled from "styled-components";
 import { Card, Button } from "react-bootstrap";
-const Dash = () => {
+export default () => {
   return (
     <>
       <h1>
@@ -20,7 +20,6 @@ const Dash = () => {
     </>
   );
 };
-export { Dash };
 
 const Iconbook = styled(FaAddressBook)`
   color: red;
