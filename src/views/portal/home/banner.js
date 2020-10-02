@@ -11,7 +11,7 @@ const BannerHome = () => {
 
 export default BannerHome;
 const Banner = styled.div`
-  min-height: 400px;
+  min-height: 300px;
   width: 100%;
   background: #3498db;
 `;

@@ -11,7 +11,7 @@ const MenuHome = () => {
 
 export default MenuHome;
 const Menu = styled.div`
-  min-height: 400px;
+  min-height: 150px;
   width: 100%;
   background: #2ecc71;
 `;
