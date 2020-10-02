@@ -66,6 +66,7 @@ export default () => {
 
 const Header = styled.div`
   background-color: #111;
+  font-family: "Ubuntu Condensed", sans-serif;
   .nav-link:hover {
     color: brown !important;
   }

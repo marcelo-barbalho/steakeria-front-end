@@ -77,8 +77,10 @@ export default () => {
 
 const Footer = styled.div`
   background: #111;
+
   .infoText {
     color: #eee;
+    padding: 5px;
   }
 `;
 
@@ -88,6 +90,7 @@ const FooterInfo = styled.div`
     font-weight: 600;
     padding: 5px 2px 2px 2px;
     border-bottom: thin solid brown;
+    margin: 8px 7px;
     color: brown;
   }
 `;
@@ -111,4 +114,5 @@ const FooterCopy = styled.div`
   font-size: small;
   padding: 5px;
   text-align: center;
+  margin-top: 3px;
 `;
