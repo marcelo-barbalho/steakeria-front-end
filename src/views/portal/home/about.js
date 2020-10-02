@@ -11,7 +11,7 @@ const AboutHome = () => {
 
 export default AboutHome;
 const About = styled.div`
-  min-height: 400px;
+  min-height: 150px;
   width: 100%;
   background: #9b59b6;
 `;

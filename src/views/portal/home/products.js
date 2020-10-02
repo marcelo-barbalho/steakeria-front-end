@@ -12,7 +12,7 @@ const ProductsHome = () => {
 export default ProductsHome;
 
 const Products = styled.div`
-  min-height: 400px;
+  min-height: 150px;
   width: 100%;
   background: #34495e;
 `;
