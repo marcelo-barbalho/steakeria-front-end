@@ -44,16 +44,11 @@ export default () => {
             </Logo>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse
-            id="basic-navbar-nav"
-            className="justify-content-end"
-          >
+          <Navbar.Collapse className="justify-content-end">
             <Nav>
               {menu.map((item, i) => (
-                <Link to={item.link}>
-                  <Nav.Link key={i} href="#home">
-                    {item.title}
-                  </Nav.Link>
+                <Link to={item.link} key={i}>
+                  <Nav.Link as="div">{item.title}</Nav.Link>
                 </Link>
               ))}
             </Nav>
@@ -69,6 +64,9 @@ const Header = styled.div`
   font-family: "Ubuntu Condensed", sans-serif;
   .nav-link:hover {
     color: brown !important;
+  }
+  .navbar-nav a:hover {
+    text-decoration: none;
   }
 `;
 
