@@ -86,7 +86,7 @@ const FooterInfo = styled.div`
   .title {
     font-size: 20p;
     font-weight: 600;
-    padding: 5px 0;
+    padding: 5px 2px 2px 2px;
     border-bottom: thin solid brown;
     color: brown;
   }
@@ -94,9 +94,10 @@ const FooterInfo = styled.div`
 const FooterSocial = styled.div`
   width: 100%;
   color: #eee;
-  border-bottom: 1px solid brown;
+  border-bottom: 4px solid brown;
+  padding: 5px;
   svg {
-    margin: 1px;
+    margin: 2px;
     font-size: 20px;
     :hover {
       cursor: pointer;
@@ -108,6 +109,6 @@ const FooterCopy = styled.div`
   width: 100%;
   color: #eee;
   font-size: small;
-  padding: 2px;
+  padding: 5px;
   text-align: center;
 `;

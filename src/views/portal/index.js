@@ -3,6 +3,9 @@ import Home from "./home";
 import About from "./about";
 import { Route } from "react-router-dom";
 import Layout from "../../components/layout";
+import Product from "./product";
+import Service from "./service";
+import Contact from "./contact";
 
 export default (props) => {
   return (
@@ -19,6 +22,24 @@ export default (props) => {
           baseName={props.match.path}
           path={props.match.path + "about"}
           component={About}
+        />
+        <Route
+          exact
+          baseName={props.match.path}
+          path={props.match.path + "product"}
+          component={Product}
+        />
+        <Route
+          exact
+          baseName={props.match.path}
+          path={props.match.path + "service"}
+          component={Service}
+        />
+        <Route
+          exact
+          baseName={props.match.path}
+          path={props.match.path + "contact"}
+          component={Contact}
         />
       </Layout>
     </>
