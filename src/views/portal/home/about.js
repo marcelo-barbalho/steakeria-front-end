@@ -4,7 +4,8 @@ import styled from "styled-components";
 const AboutHome = () => {
   return (
     <>
-      <About></About>
+      <About>
+      </About>
     </>
   );
 };
@@ -15,3 +16,4 @@ const About = styled.div`
   width: 100%;
   background: #9b59b6;
 `;
+

@@ -22,5 +22,5 @@ const Home = () => {
 export default Home;
 
 const CustomHome = styled.div`
-  background-color: #ddd;
+  /* background-color: #ddd; */
 `;

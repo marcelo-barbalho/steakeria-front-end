@@ -4,9 +4,9 @@ import Routers from "./routes";
 import GlobalStyle from "./assets/styles/globalStyle";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
     <GlobalStyle />
     <Routers />
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById("root")
 );
