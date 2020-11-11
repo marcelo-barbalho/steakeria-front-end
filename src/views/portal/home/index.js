@@ -10,10 +10,10 @@ const Home = () => {
     <>
       <CustomHome>
         <Banner />
+        <Info />
         <Menu />
         <Products />
         <About />
-        <Info />
       </CustomHome>
     </>
   );

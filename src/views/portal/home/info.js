@@ -1,17 +1,35 @@
 import React from "react";
 import styled from "styled-components";
+import {Container, Row, Col} from 'react-bootstrap'
 
-const InfoHome = () => {
+export default () => {
   return (
     <>
-      <Info>teste info</Info>
+      <Info>
+        <Container>
+        </Container>
+          <Row>
+            <Col><InnerText>customizar</InnerText></Col>
+            <Col><InnerText>customizar</InnerText></Col>
+            <Col><InnerText>customizar</InnerText></Col>
+          </Row>
+      </Info>
     </>
   );
 };
 
-export default InfoHome;
+
 const Info = styled.div`
-  min-height: 150px;
+  min-height: 100px;
   width: 100%;
-  background: #f1c40f;
+  background: brown;
 `;
+
+const InnerText = styled.h4`
+  background:#000;
+  color:#ccc;
+  padding:30px;
+  margin:8px;
+  text-align:center
+
+`
