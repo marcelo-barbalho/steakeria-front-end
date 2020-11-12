@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Banner from "./banner";
 import About from "./about";
-import Menu from "./menu";
+import Services from "./services";
 import Products from "./products";
 import Info from "./info";
 const Home = () => {
@@ -11,9 +11,9 @@ const Home = () => {
       <CustomHome>
         <Banner />
         <Info />
-        <Menu />
-        <Products />
         <About />
+        <Services />
+        <Products />
       </CustomHome>
     </>
   );

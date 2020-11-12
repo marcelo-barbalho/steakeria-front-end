@@ -20,7 +20,7 @@ const Routers = () => {
     <Router history={history}>
       <Switch>
         <AdminRoute path="/admin" component={Admin} />
-  <Route exact path="/login" component= {Login} />
+        <Route exact path="/login" component= {Login} />
         <Route path="/" component={Portal} />
       </Switch>
     </Router>

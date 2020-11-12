@@ -15,7 +15,7 @@ export default () => {
             <Carousel.Item>
               <StyledRow>
                 <Col md={3} sm={3}>
-                  <img src={steak1} className='img-fluid'/>
+                  <img src={steak1} className='img-fluid' alt=''/>
                 </Col>
                 <InfoCol md={3} sm={3}>
                   <div className="tag">A pedida do churrasqueiro!</div>
@@ -28,7 +28,7 @@ export default () => {
             <Carousel.Item>
               <StyledRow>
                 <Col md={3} sm={3}>
-                  <img src={steak2} className='img-fluid'/>
+                  <img src={steak2} className='img-fluid' alt=''/>
                 </Col>
                 <InfoCol md={3} sm={3}>
                   <div className="tag">De dar água na boca!</div>

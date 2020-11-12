@@ -1,11 +1,13 @@
 import React from "react";
 import Dash from "./dash";
-import LayoutAdmin from "../../components/layout/admin/"
+import AdminProducts from './products'
+import LayoutAdmin from "../../components/layout/admin"
 import { Route } from "react-router-dom";
 import {BsFillGearFill, BsReverseLayoutTextWindowReverse} from 'react-icons/bs'
 import {RiDashboardFill} from 'react-icons/ri'
 import {BiBarcode} from 'react-icons/bi'
 import {ImQrcode} from 'react-icons/im'
+import Categories from './categories'
 
 
 
@@ -26,13 +28,13 @@ const PainelMenu = [
     name: 'Categorias',
     path: '/category',
     icon: <ImQrcode/>,
-    component: () => <h1>Categorias</h1>
+    component: Categories
   },
   {
       name: 'Produtos',
       path: '/products',
       icon: <BiBarcode/>,
-      component: () => <h1>Produtos</h1>
+      component: AdminProducts
   },
   {
       name: 'Serviços',
@@ -44,11 +46,8 @@ const PainelMenu = [
 
 
 export default (props) => {
-  console.log()
   return (
-    <LayoutAdmin Menu={PainelMenu}>
-      {/* <Route exact baseName={props.match.path} path={props.match.path + "/"} component={Dash}/> */}
-     
+    <LayoutAdmin Menu={PainelMenu}>     
       {PainelMenu.map((item, i) =>(
         <Route key={i} exact baseName={props.match.path} path={props.match.path + item.path} component={item.component}/>
         ))}

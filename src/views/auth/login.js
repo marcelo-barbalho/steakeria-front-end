@@ -1,10 +1,48 @@
-import React from 'react'
+import React, {useState} from 'react'
 import loginImg from '../../assets/images/medium-rare-steak-shutterstock_706040446.jpg'
 import styled from 'styled-components'
 import {RiHome4Fill} from 'react-icons/ri'
 import { Link } from 'react-router-dom'
+import {Form, Button} from 'react-bootstrap'
+import auth from '../../services/auth' 
+import {saveToken} from '../../config/auth'
+import history from '../../config/history'
+import http from '../../config/config'
 
 export default () => {
+
+  const [form, setForm] = useState({
+    email:'root@teste.com',
+    password:'123456'
+  })
+  const [loading, setLoading] = useState(false)
+
+  const handleChange = (attr) => {
+      setForm({
+        ...form,
+        [attr.target.name]:[attr.target.value]
+      })
+  }
+  const isValidSubmit = () => form.email && form.password
+
+  const submitLogin = async (e) => {
+     e.preventDefault()
+     if (isValidSubmit()) {
+       setLoading(true)
+       try {
+         const {data} = await auth(form)
+         const {token} = data
+         http.defaults.headers['x-auth-token'] = token
+         saveToken(token)
+         history.push('/admin')
+       } catch (error) {
+        setLoading(true)
+        console.log("não funcionou", error)
+       }
+     } 
+  }
+
+
   return (
     <>
       <Login>
@@ -21,33 +59,22 @@ export default () => {
                       <div className="text-center">
                         <h1 className="h4 text-gray-900 mb-4">Bem Vindo a Stakeria!</h1>
                       </div>
-                      <form className="user">
-                        <div className="form-group">
-                          <input type="email" className="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Insira seu endereço de e-mail" />
-                        </div>
-                        <div className="form-group">
-                          <input type="password" className="form-control form-control-user" id="exampleInputPassword" placeholder="insira sua senha" />
-                        </div>
-                        <div className="form-group">
-                          <div className="custom-control custom-checkbox small">
-                            <input type="checkbox" className="custom-control-input" id="customCheck" />
-                            <label className="custom-control-label" htmlFor="customCheck">Lembrar</label>
-                          </div>
-                        </div>
-                        <a href="index.html" className="btn btn-primary btn-user btn-block">
-                          Entrar
-                        </a>
-                        <hr />
-                        {/* <a href="index.html" className="btn btn-google btn-user btn-block">
-                          <i className="fab fa-google fa-fw" /> Login with Google
-                        </a>
-                        <a href="index.html" className="btn btn-facebook btn-user btn-block">
-                          <i className="fab fa-facebook-f fa-fw" /> Login with Facebook
-                        </a> */}
-                      </form>
+                      <Form className='user'>
+                        <Form.Group controlId="formBasicEmail">                        
+                          <Form.Control type="email" className="form-control form-control-user" onChange={handleChange} name='email' placeholder="Enter email" value={form.email || ""} />
+                        </Form.Group>
+                        <Form.Group controlId="formBasicPassword" >                        
+                          <Form.Control type="password" className="form-control form-control-user" onChange={handleChange} name='password' placeholder="Password" value={form.password || ""} />
+                        </Form.Group>
+                        <Button onClick={submitLogin} disabled={!isValidSubmit()}  variant="primary" className="btn btn-primary btn-user btn-block" type="submit">
+                          {loading ? 'Carregando…' : 'Enviar'}
+                        </Button>
+                      </Form>
                       <hr />
                       <div className="text-center">
-                        <Link to={'/'} className="small"><RiHome4Fill/>Página Inicial</Link>
+                        <Link to={'/'} className="small">
+                          <RiHome4Fill/>Página Inicial
+                        </Link>
                       </div>
                     </div>
                   </div>
