@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {getCategory, deleteCategory} from '../../services/admin'
+import {getCategory, deleteCategory, postCategory} from '../../services/admin'
 import {Table, Button, Form} from 'react-bootstrap'
 import styled from 'styled-components'
 import Swal from 'sweetalert2'
@@ -44,15 +44,17 @@ export default () => {
     )
 
     const handleChange = (attr) => {
+        const {value, name} = attr.target
         setFormCategory({
           ...formCategory,
-          [attr.target.name]:[attr.target.value]
+          [name]:value
         })
+        return
     }
 
     const NewCatg = () => (
         <>
-        <Button onClick={()=> setCreate(false)}>Lista</Button>
+        <Button onClick={()=> (setCreate(false), setUpdate(true))}>Lista</Button>
         <hr />
             <Form>
                 <Form.Group controlId="formBasicEmail">
@@ -63,7 +65,7 @@ export default () => {
                     <Form.Label>Url do ícone</Form.Label>
                     <Form.Control onChange={handleChange} name='icon' value={formCategory.icon || ''} type="text" />
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" onClick={submitCategory} >
                     Enviar
                 </Button>
             </Form>
@@ -79,6 +81,16 @@ export default () => {
             </tr>
             ))
     
+    const submitCategory = async () => {
+        try {
+            await postCategory(formCategory)
+            message('Sucesso!','Sua categoria foi criada.','success')
+            }
+            
+         catch (error) {
+            message('Erro!','Sua categoria não foi criada.','error') 
+        }
+    }        
 
     const message = (title, message, icon) => {
         Swal.fire(
@@ -101,9 +113,9 @@ export default () => {
           }).then(async (result) => {
               if (result.isConfirmed) {
                 deleteCategory(obj._id)
-                .then(() => {
-                    setUpdate(true)
+                .then(() => {                    
                     message('Deletado!','A categoria foi deletada com sucesso','success')
+                    setUpdate(true)
                 })
                 .catch(() => message('Erro!','A categoria não foi deletada','error'))
                 }
@@ -113,7 +125,7 @@ export default () => {
 
   return (
     <>
-    {create ? <NewCatg /> : <List/>}
+    {create ? NewCatg() : List()}
     </>
   )
 }

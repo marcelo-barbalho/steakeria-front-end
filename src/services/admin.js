@@ -4,9 +4,11 @@ const getProducts = (data) => http.get('/product')
 
 const getCategory = (data) => http.get('/category')
 const deleteCategory = (id) => http.delete(`/category/${id}`)
+const postCategory = (data) => http.post('/category', data)
 
 export {
     getProducts,
     getCategory,
-    deleteCategory
+    deleteCategory,
+    postCategory
 }
