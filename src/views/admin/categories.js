@@ -1,29 +1,30 @@
 import React, {useState, useEffect} from 'react'
-import {getCategory, deleteCategory, postCategory} from '../../services/admin'
+import {getCategory, deleteCategory, postCategory, patchCategory} from '../../services/admin'
 import {Table, Button, Form} from 'react-bootstrap'
 import styled from 'styled-components'
 import Swal from 'sweetalert2'
 
-export default () => {
+export default (props) => {
     const [category, setCategory] = useState([])
-    const [update, setUpdate] = useState(false)
-    const [create, setCreate] = useState(false)
+    const [refresh, setRefresh] = useState(false)
+    const [isForm, setIsForm] = useState(false)
     const [formCategory, setFormCategory] = useState({})
+   
     
     
     useEffect(()=> {
-        setUpdate(false)
+        setRefresh(false)
         let get = async () => { 
             const c = await getCategory()
               setCategory(c.data)
           }
-        if (!update) {
+        if (!refresh) {
             get()
         }
 
         return () => get =() =>{}
    
-    }, [update])
+    }, [refresh])
 
     const sortCategory = category.sort((a,b)=>{
         if (a.name>b.name) {
@@ -35,15 +36,20 @@ export default () => {
         return 0
     })
     const listMount = () => 
-    sortCategory.map((item, i)=>(
-        <tr key={i}>
-        <td>{item.name}</td>
-        <td>Editar  |  <Button onClick={()=> deleteCatg(item)}>Excluir</Button></td>
-        </tr>
+        sortCategory.map((item, i)=>(
+            <tr key={i}>
+            <td>{item.name}</td>
+            <td><Button onClick={()=> updateCategory(item)}>Editar</Button>  |  <Button onClick={()=> deleteCatg(item)}>Excluir</Button></td>
+            </tr>
         ))
+    const updateCategory = (item) => {
+        setIsForm(true)
+        setFormCategory(item)
+
+    }
     const List = ()=>(
         <>
-        <Button onClick={()=> setCreate(true)}>Criar</Button>
+        <Button onClick={()=> {setIsForm(true); setFormCategory({})}}>Criar</Button>
         <hr />
         <Table bordered hover size="sm">
         <thead>
@@ -66,9 +72,10 @@ export default () => {
         })
         return
     }
-    const NewCatg = () => (
+    
+    const FormCatg = () => (
         <>
-        <Button onClick={()=> (setCreate(false), setUpdate(true))}>Lista</Button>
+        <Button onClick={()=> {setIsForm(false); setRefresh(true)}}>Lista</Button>
         <hr />
             <Form>
                 <Form.Group controlId="formBasicEmail">
@@ -79,21 +86,22 @@ export default () => {
                     <Form.Label>Url do ícone</Form.Label>
                     <Form.Control onChange={handleChange} name='icon' value={formCategory.icon || ''} type="text" />
                 </Form.Group>
-                <Button variant="primary" onClick={submitCategory} >
+                <Button variant="primary" onClick={submitCategory}>
                     Enviar
                 </Button>
             </Form>
         </>
 
     )
+    const reqType = (data) => data._id ? patchCategory(data._id,data) : postCategory(data) 
     const submitCategory = async () => {
         try {
-            await postCategory(formCategory)
-            message('Sucesso!','Sua categoria foi criada.','success')
+            await reqType(formCategory)
+            message('Sucesso!',formCategory._id ? 'Sua categoria foi alterada com sucesso.':'Sua categoria foi criada com sucesso.','success')
             }
             
          catch (error) {
-            message('Erro!','Sua categoria não foi criada.','error') 
+            message('Erro!',formCategory._id ? 'Sua categoria não foi alterada.':'Sua categoria não foi criada.','error') 
         }
     }
     const message = (title, message, icon) => {
@@ -118,7 +126,7 @@ export default () => {
                 deleteCategory(obj._id)
                 .then(() => {                    
                     message('Deletado!','A categoria foi deletada com sucesso','success')
-                    setUpdate(true)
+                    setRefresh(true)
                 })
                 .catch(() => message('Erro!','A categoria não foi deletada','error'))
                 }
@@ -128,7 +136,7 @@ export default () => {
 
   return (
     <>
-    {create ? NewCatg() : List()}
+    {isForm ? FormCatg() : List()}
     </>
   )
 }
