@@ -25,6 +25,22 @@ export default () => {
    
     }, [update])
 
+    const sortCategory = category.sort((a,b)=>{
+        if (a.name>b.name) {
+            return 1
+        }
+        if (a.name<b.name) {
+            return -1
+        }
+        return 0
+    })
+    const listMount = () => 
+    sortCategory.map((item, i)=>(
+        <tr key={i}>
+        <td>{item.name}</td>
+        <td>Editar  |  <Button onClick={()=> deleteCatg(item)}>Excluir</Button></td>
+        </tr>
+        ))
     const List = ()=>(
         <>
         <Button onClick={()=> setCreate(true)}>Criar</Button>
@@ -42,7 +58,6 @@ export default () => {
         </Table>
         </>
     )
-
     const handleChange = (attr) => {
         const {value, name} = attr.target
         setFormCategory({
@@ -51,7 +66,6 @@ export default () => {
         })
         return
     }
-
     const NewCatg = () => (
         <>
         <Button onClick={()=> (setCreate(false), setUpdate(true))}>Lista</Button>
@@ -72,15 +86,6 @@ export default () => {
         </>
 
     )
-
-    const listMount = () => 
-        category.map((item, i)=>(
-            <tr key={i}>
-            <td>{item.name}</td>
-            <td>Editar  |  <Button onClick={()=> deleteCatg(item)}>Excluir</Button></td>
-            </tr>
-            ))
-    
     const submitCategory = async () => {
         try {
             await postCategory(formCategory)
@@ -90,8 +95,7 @@ export default () => {
          catch (error) {
             message('Erro!','Sua categoria não foi criada.','error') 
         }
-    }        
-
+    }
     const message = (title, message, icon) => {
         Swal.fire(
             title,
@@ -99,7 +103,6 @@ export default () => {
             icon
             )
     }
-
     const deleteCatg = async (obj) => {
         Swal.fire({
             title: `Tem certeza que deseja deletar a categoria ${obj.name}?`,
@@ -121,7 +124,7 @@ export default () => {
                 }
                 
           })
-    } 
+    }
 
   return (
     <>
@@ -130,6 +133,7 @@ export default () => {
   )
 }
 
+// Styled Components
 const TableH = styled.th`
 background:#000;
 color:#ccc; 
