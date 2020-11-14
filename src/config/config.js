@@ -1,8 +1,8 @@
 import axios from "axios";
-import {getToken, removeToken, saveToken} from './auth'
+import {getToken, removeToken} from './auth'
 import history from './history'
 
-const localAccess = "http://localhost:3001";
+// const localAccess = "http://localhost:3001";
 const teste = 'https://steakeria.herokuapp.com'
 
 const http = axios.create({
