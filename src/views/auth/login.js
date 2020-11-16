@@ -31,9 +31,9 @@ export default () => {
        setLoading(true)
        try {
          const {data} = await auth(form)
-         const {token} = data
+         const {token, user} = data
          http.defaults.headers['x-auth-token'] = token
-         saveToken(token)
+         saveToken(token, user)
          history.push('/admin')
        } catch (error) {
         setLoading(true)

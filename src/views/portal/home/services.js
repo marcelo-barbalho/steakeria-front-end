@@ -7,19 +7,16 @@ export default () => {
     <>
       <Services>
             <Title>Nossos Serviços</Title>
+          
         <Container>
+      
           <Row>
-            <Item>
-                bibkbibuibibiub
-            </Item>
-            <Item>
-              kjsdcdsckjsdcsd
-            </Item>
-            <Item>
-              djcjkjsdncnsjdkncnsd
-            </Item>
-          </Row>
-        </Container>
+            <Item>  bibkbibuibibiub</Item>
+            <Item>  bibkbibuibibiub</Item>
+            <Item>  bibkbibuibibiub</Item>
+        
+          </Row>  </Container>
+   
       </Services>
     </>
   );
@@ -30,18 +27,18 @@ const Services = styled.div`
   min-height: 150px;
   width: 100%;
   background:brown;
-`;
+  color:#ccc;
+  padding: 2em 0`;
 
 const Item = styled(Col)`
 text-align:center;
 margin:5px;
 background: #000;
 height:100px;
-color:#ccc
-
+padding:1em;
 `
 const Title = styled.h3`
 text-align:center;
-color:#ccc
+margin-bottom:1em;
 `
 
