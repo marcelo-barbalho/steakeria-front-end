@@ -2,12 +2,12 @@ import axios from "axios";
 import {getToken, removeToken} from './auth'
 import history from './history'
 
-// const localAccess = "http://localhost:3001";
-const teste = 'https://steakeria.herokuapp.com'
+const localAccess = "http://localhost:3001";
+// const teste = 'https://steakeria.herokuapp.com'
 
 const http = axios.create({
-  baseURL:teste
-  // baseURL: process.env.REACT_APP_TEST || localAccess
+  // baseURL:teste
+  baseURL: process.env.REACT_APP_TEST || localAccess
 });
 
 http.defaults.headers["Content-Type"] = "application/json";

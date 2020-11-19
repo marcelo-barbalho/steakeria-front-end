@@ -94,10 +94,11 @@ export default () => {
     const isChecked = name ==='status' || name==='highlight'
     
     if (name === 'photo') {
+      let file = attr.target.files[0]
       setFormProducts({
         ...formProducts,
-        'photo' : attr.target.files[0]
-      })
+        'photo' : file
+      })  
     }
 
     setFormProducts({
@@ -128,7 +129,7 @@ const FormProduct = () => (
             <Form.Label>Selecione uma categoria</Form.Label>
             <Form.Control as="select" size="sm" name='category' custom onChange={handleChange}>
               {category.map((catg, i) => (
-                <option key ={i} value={catg._id}>{catg.name}</option>
+                <option defaultValue='0' selected={formProducts.category?._id === catg._id} key ={i} value={catg._id}>{catg.name}</option>
 
               ))}
             </Form.Control>
