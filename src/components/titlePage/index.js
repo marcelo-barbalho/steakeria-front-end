@@ -26,4 +26,5 @@ const Sub = styled.div`
 const ConstainerTitle = styled.div`
   background: brown;
   padding: 10px;
+  margin-bottom:2rem;
 `;

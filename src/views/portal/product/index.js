@@ -30,26 +30,24 @@ export default () => {
     const prods = products.filter(i => i.category._id === prod._id)
 
     return (
-      <div>
+      <ProductsWrapper>
           {prods.length === 0 
           ? <div>Sem produtos</div>
           : prods.map((prd, i) => (
-        <Card key={i} className="text-center">
+        <ProductCard key={i} className="text-center">
           <ImgCard src={prd.photo} />
           <Card.Body>
-            <Card.Title>{prd.title}</Card.Title>
-            <Card.Text>{prd.description}</Card.Text>
+            <ProductTitle>{prd.title}</ProductTitle>
+            <Card.Text>{prd.complete_description}</Card.Text>
           </Card.Body>
-        </Card>
+        </ProductCard>
           ))}
-
-
-      </div>
+</ProductsWrapper>
     )
   }
 
   return (
-    <>
+    
       <Product>
         {" "}
         <Title title="Product" sub="We have the best meat cuts, made by the best chefs, check it..."/>
@@ -66,26 +64,62 @@ export default () => {
           </TabBox>
           </Container>
       </Product>
-      ;
-    </>
+    
   );
 };
+
+//styled component
 const Product = styled.div`
   display: block;
-  height: 500px;
-  color: #111;
-  .tab-content{
-    background:#eee !important  }
+ min-height: calc(100vh - 257px);
+  color: #ccc;
+  padding-bottom:2em;
+ 
 `;
-const TabBox = styled(Tabs)`
-background:#eee;
-`
+const ProductsWrapper= styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(0,0,0,.9);
+    border-top:brown 2px solid;
+    border-radius:10px;
+    `;
 
+const TabBox = styled(Tabs)`
+ border:none;
+&:first-child{
+  margin-left:0.5em;
+}
+  >.nav-link{
+    background-color: rgba(0,0,0,.8);
+    color:#ccc;
+    margin-right:.2em;
+    transition:ease-in;
+
+   
+&.active,&:hover {
+   background-color: rgba(0,0,0,.9);
+  color:brown;
+  border:none;
+ 
+}}
+`
+const ProductCard=styled(Card)`
+background-color: transparent;
+flex-direction:row;
+width:50%;
+padding:.5em 0;
+`;
 const TabIcons = styled(Tab)`
 color:red;
 `
-
+const ProductTitle=styled(Card.Title)`
+border-bottom: brown 1px solid;
+    display: table;
+    margin: auto;
+    padding: .2em 1em;
+    margin-bottom: 0.2em;
+`;
 const ImgCard = styled(Card.Img)`
-max-height:50px;
-max-width:50px;
+max-width:200px;
+max-height:150px;
 `

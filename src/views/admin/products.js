@@ -3,6 +3,8 @@ import {getProducts, deleteProducts, postProducts, patchProducts, getCategory} f
 import styled from 'styled-components'
 import Swal from 'sweetalert2'
 import {Form, Button, Table, ProgressBar} from 'react-bootstrap'
+import {BiEdit} from 'react-icons/bi'
+import {RiDeleteBin2Line} from 'react-icons/ri'
 
 export default () => {
     const [products, setProducts] = useState([])
@@ -57,7 +59,7 @@ export default () => {
           <td>{item.price}</td>
           <td>{item.discount_price}</td>
           <td>{item.discount_price_percent}</td>
-          <td><Button onClick={()=> updateProducts(item)}>Editar</Button>  |  <Button onClick={()=> deleteProd(item)}>Excluir</Button></td>
+          <TableCell><div onClick={()=> updateProducts(item)}><BiEdit/></div>  |  <div onClick={()=> deleteProd(item)}><RiDeleteBin2Line/></div></TableCell>
           </tr>
       ))
   const updateProducts = (item) => {
@@ -263,6 +265,9 @@ border:none;
 :nth-child(6){width:10%}
 :nth-child(7){width:10%}
 
-`
+`;
+const TableCell= styled.td`
+  display:flex;
+`;
 
 
