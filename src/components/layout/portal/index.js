@@ -2,24 +2,25 @@ import React from "react";
 import styled from "styled-components";
 import Header from "./header";
 import Footer from "./footer";
+
 const Layout = ({ children }) => {
   return (
     <>
-      <Header_style>
+      <HeaderStyle>
         <Header />
-      </Header_style>
+      </HeaderStyle>
       <Content>{children}</Content>
-      <Footer_style>
+      <FooterStyle>
         <Footer />
-      </Footer_style>
+      </FooterStyle>
     </>
   );
 };
 
-const Header_style = styled.div`
+const HeaderStyle = styled.div`
   width: 100%;
 `;
-const Footer_style = styled.div`
+const FooterStyle = styled.div`
   height: 200px;
   width: 100%;
 `;

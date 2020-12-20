@@ -12,7 +12,7 @@ export default () => {
   return (
     <>
       <Footer>
-        <Container>
+        <ModContainer>
           <FooterInfo>
             <Row>
               <Col md={5}>
@@ -69,7 +69,7 @@ export default () => {
             <FaCopyright />
             Todos os Direitos Reservados
           </FooterCopy>
-        </Container>
+        </ModContainer>
       </Footer>
     </>
   );
@@ -115,4 +115,7 @@ const FooterCopy = styled.div`
   padding: 5px;
   text-align: center;
   margin-top: 3px;
+`;
+const ModContainer = styled(Container)`
+  width: 85%;
 `;

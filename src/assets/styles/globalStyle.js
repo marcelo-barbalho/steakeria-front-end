@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import "bootstrap/dist/css/bootstrap.min.css";
+import BgImage from "../images/bg.jpg"
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -10,7 +11,10 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
 }
 
-
+body {
+    background: url(${BgImage}) fixed no-repeat;
+    background-size:cover;
+}
 
 `;
 
