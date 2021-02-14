@@ -1,68 +1,102 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Projeto steakeria (front-end)
 
-## Available Scripts
+<p align="center">O projeto consiste na construção de um sistema (aplicação web) cujo o objetivo é receber produtos cadastrados
+e exibir em uma vitrine
+</p>
+<p align="center">Projeto desenvolvido durante bootcamp infnet 2020</p>
+<h4 align="center"> <a href='https://steakeria-front.vercel.app/' align="center">Veja o projeto online</a></h4>
+<h4 align="center"> 
+	🚧 🚀 Em construção...  🚧
+</h4>
 
-In the project directory, you can run:
+<p align="center">
+ <a href="#roadmap">Roadmap</a> •
+ <a href="#features">Features</a> •
+ <a href="#run">Como rodar o projeto</a> • 
+ <a href="#tech">Tecnologias</a> • 
+ <a href="#licence">Licença</a> • 
+ <a href="https://github.com/marcelo-barbalho">Autor</a>
+</p>
 
-### `npm start`
+<h3 id='features'>⚙️Features</h3>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [x] Gerenciamento de usuário
+- [x] Gerenciamento de categorias
+- [x] Gerenciamento de produtos
+- [x] Vitrine de produtos
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<h3 id='run'>🚀Como rodar o Projeto</h3>
+Este projeto é divido em duas partes:
+<ol>
+	<li>Backend </li>
+	<li>Frontend (este repositorio) </li>
+</ol>
 
-### `npm test`
+💡O Frontend precisa que o Backend esteja sendo executado para funcionar.
+<h4>Pré-requisitos</h4>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[Git](https://git-scm.com)  
+[Node.js](https://nodejs.org/en/)
 
-### `npm run build`
+#### 🎲 Rodando o Backend (servidor)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+# Clone este repositório
+$ git clone git@github.com:marcelo-barbalho/steakeria-back-end.git
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Acesse a pasta do projeto no terminal/cmd
+$ cd steakeria-back-end
 
-### `npm run eject`
+# Vá para a pasta server
+$ cd server
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Instale as dependências
+$ npm install
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Execute a aplicação em modo de desenvolvimento
+$ npm run dev:server
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# O servidor inciará na porta:3333 - acesse http://localhost:3333 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
 
-## Learn More
+#### 🧭 Rodando a aplicação web (Frontend)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# Clone este repositório
+$ git clone git@github.com:marcelo-barbalho/steakeria-front-end.git
 
-### Code Splitting
+# Acesse a pasta do projeto no seu terminal/cmd
+$ cd steakeria-front-end
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+# Instale as dependências
+$ npm install
 
-### Analyzing the Bundle Size
+# Execute a aplicação em modo de desenvolvimento
+$ npm run start
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+# A aplicação será aberta na porta:3000 - acesse http://localhost:3000
+```
 
-### Making a Progressive Web App
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+<h3 id='tech'>🛠 Tecnologias</h3>
 
-### Advanced Configuration
+As seguintes ferramentas foram usadas na construção do projeto:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- [Node.js](https://nodejs.org/en/)
+- [React](https://pt-br.reactjs.org/)
+- [React-boostrap](https://react-bootstrap.github.io/)
+- [Styled Components](https://styled-components.com/)
+- [Node-sass](https://www.npmjs.com/package/node-sass)
 
-### Deployment
+---
+<h3 id='licence'>📝 Licença</h3>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Este projeto esta sobe a licença [MIT](./LICENSE).
 
-### `npm run build` fails to minify
+Feito por Marcelo Barbalho 👋🏽 [Entre em contato!](https://www.linkedin.com/in/marcelo-barbalho-cruz/)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+---
